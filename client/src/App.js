@@ -7,6 +7,7 @@ import Landing from './pages/Landing/Landing';
 import { UserDetails } from './pages/UserDetails/UserDetails';
 
 function App() {
+  console.log = function() {} 
   return (
     <div className="App">
       <GlobalProvider>

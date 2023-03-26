@@ -17,7 +17,7 @@
         align-items: center;
         flex-direction: column;
         padding: 20px;
-
+        height: 100%;
         @media (max-width: 600px) {
             max-width: 90%;
         }
@@ -36,7 +36,8 @@
             justify-content: center;
             flex-direction: column;
             padding: 0 !important;
-
+            overflow: auto;
+            height:100%;
           
             li{
                 display: flex;
@@ -68,7 +69,7 @@
 
                     :active{
                         transform: scale(0.9);
-                        
+
                     }
                 }
             }

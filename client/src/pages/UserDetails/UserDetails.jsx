@@ -15,11 +15,15 @@ export const UserDetails = () => {
   const [showAddEmail,setShowAddEmail]=useState(false);
   const [newEmail,setNewEmail]=useState('');
   const [allEmails,setAllEmails]=React.useState([]);
-  const [emailsVoted,setEmailsVoted]=useState(JSON.parse(localStorage.getItem('emailsVoted')));
+  const [emailsVoted,setEmailsVoted]=useState(JSON.parse(localStorage.getItem('emailsVoted')) || []);
   const fetchEmailsVoted=()=>{
     // setEmailsVoted([]);
     setEmailsVoted(JSON.parse(localStorage.getItem('emailsVoted')));
   }
+
+  // useEffect(()=>{
+  //   setEmailsVoted(JSON.parse(localStorage.getItem('emailsVoted')));
+  // },[])
 
   useEffect(()=>{
     if(document.getElementById("userDetails"))
@@ -48,10 +52,9 @@ export const UserDetails = () => {
       return;
     }
     const {data:getData,error:getError}=await supabase
-    .from('users')
+    .from('emails')
     .select('*')
-    .eq('linkedin',linkedin)
-    .eq('company',JSON.stringify(company))
+    .eq('email_id',newEmail)
 
     if(getData.length===0){
       const {data:emailData, error:emailError}=await supabase.from('emails').insert([
@@ -118,8 +121,8 @@ export const UserDetails = () => {
             
               {allEmails.map((email,index)=>(
                 <li key={index}>
-                <Typography variant="h6">{shortEmail(email.email_id)} <ContentCopy id={styles.icon} onClick={e=>copyEmail(email.email_id)}/> </Typography> <Typography variant="h6">{email.count} votes {!emailsVoted.includes(email.id)? <span><ThumbUpIcon color="primary"id={styles.icon} onClick={e=>vote(email,"up")}/>  <ThumbDownIcon onClick={e=>vote(email,"down")}  color="secondary" id={styles.icon} /></span>: <span style={{color:"green"}}
-                > Already Voted</span>}</Typography> 
+                <Typography variant="h6">{shortEmail(email.email_id)} <ContentCopy id={styles.icon} onClick={e=>copyEmail(email.email_id)}/> </Typography> <Typography variant="h6">{email.count}  {!emailsVoted.includes(email.id)? <span><ThumbUpIcon color="primary"id={styles.icon} onClick={e=>vote(email,"up")}/>  <ThumbDownIcon onClick={e=>vote(email,"down")}  color="secondary" id={styles.icon} /></span>: <span style={{color:"green"}}
+                >Voted</span>}</Typography> 
                 </li>
               ))}
             </ul>
