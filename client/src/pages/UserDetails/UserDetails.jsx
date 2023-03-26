@@ -6,6 +6,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import styles from './styles.module.scss';
 import { GlobalContext } from "../../context/searchParamContext";
 import supabase from "../../config/supabaseClientConfig";
+import { ContentCopy, CopyAll } from '@mui/icons-material';
 
 export const UserDetails = () => {
   const {searchDetails,editDetails}=React.useContext(GlobalContext);
@@ -75,6 +76,18 @@ export const UserDetails = () => {
   }
   // if(!loading && document.getElementById("userDetails"))
  
+  const shortEmail=(email)=>{
+    if(email.length>20){
+      return email.slice(0,15)+'...';
+    } 
+    return email;
+  }
+
+  const copyEmail=(email)=>{
+    navigator.clipboard.writeText(email);
+  }
+  
+
   if(loading){
     return <div style={{height:"10vh"}}>Loading...</div>
   }
@@ -97,7 +110,7 @@ export const UserDetails = () => {
               </div>
               <div className={styles.textWrapper}>
               { showAddEmail && <div className={styles.addEmail}>
-                <input type="text" placeholder="Search Email" value={newEmail} onChange={e=>setNewEmail(e.target.value)} /> <Button onClick={()=>addEmail()}>Submit</Button>
+                <input type="text" placeholder="Enter Email" value={newEmail} onChange={e=>setNewEmail(e.target.value)} /> <Button onClick={()=>addEmail()}>Submit</Button>
                </div>
               } 
                 </div>
@@ -105,8 +118,8 @@ export const UserDetails = () => {
             
               {allEmails.map((email,index)=>(
                 <li key={index}>
-                <Typography variant="h6">{email.email_id} </Typography> <Typography variant="h6">{email.count} votes {!emailsVoted.includes(email.id)? <span><ThumbUpIcon color="primary"id={styles.icon} onClick={e=>vote(email,"up")}/>  <ThumbDownIcon onClick={e=>vote(email,"down")}  color="secondary" id={styles.icon} /></span>: <span style={{color:"green"}}
-                > Already Voted</span>}</Typography>
+                <Typography variant="h6">{shortEmail(email.email_id)} <ContentCopy id={styles.icon} onClick={e=>copyEmail(email.email_id)}/> </Typography> <Typography variant="h6">{email.count} votes {!emailsVoted.includes(email.id)? <span><ThumbUpIcon color="primary"id={styles.icon} onClick={e=>vote(email,"up")}/>  <ThumbDownIcon onClick={e=>vote(email,"down")}  color="secondary" id={styles.icon} /></span>: <span style={{color:"green"}}
+                > Already Voted</span>}</Typography> 
                 </li>
               ))}
             </ul>

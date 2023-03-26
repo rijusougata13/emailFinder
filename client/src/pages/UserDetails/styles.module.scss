@@ -18,6 +18,10 @@
         flex-direction: column;
         padding: 20px;
 
+        @media (max-width: 600px) {
+            max-width: 90%;
+        }
+      
         .addEmail{
             display: flex;
             width: 100%;
@@ -33,12 +37,19 @@
             flex-direction: column;
             padding: 0 !important;
 
+          
             li{
                 display: flex;
                 width: 100%;
                 align-content: flex-start;
                 justify-content: space-between;
                 margin: 10px;
+               
+                h6{
+                    @media (max-width: 600px) {
+                        font-size: 15px;
+                    }
+                }
                 span{
                     width: 200px;
                     padding:20px;
@@ -54,6 +65,11 @@
                         cursor: pointer;
                         
                     }
+
+                    :active{
+                        transform: scale(0.9);
+                        
+                    }
                 }
             }
         }
@@ -63,6 +79,14 @@
             padding: 20px;
             align-content: flex-start;
             justify-content: space-between;
+
+            h5{
+                @media (max-width: 600px) {
+                    font-size: 15px;
+                }
+            }
+            
         }
     }
 }
+

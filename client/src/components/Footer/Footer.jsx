@@ -7,7 +7,7 @@ const Footer=()=>{
     return (
         <BottomNavigation
             showLabels
-            className={styles.wrapper}
+            className={styles.footerWrapper}
         >
         <Twitter  className={styles.icon} onClick={e=>window.open('https://twitter.com/rijusougata13')}/>
         <GitHub className={styles.icon} onClick={e=>window.open('https://github.com/rijusougata13')}/>
