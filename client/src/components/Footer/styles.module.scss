@@ -1,15 +1,15 @@
-.wrapper{
+.footerWrapper{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #1b76d2;
+    background-color: white;
     color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
 
     .icon{
-        color: white;
+        color: black;
         :hover{
             cursor: pointer;
         }
