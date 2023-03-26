@@ -1,0 +1,68 @@
+.wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1976d2;
+    color: white;
+    .details{
+        min-height: 60%;
+        color: black;
+        min-width: 50%;
+        display: flex;
+        background-color: white;
+        box-shadow: 1px 2px 5px 1px gray;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+
+        .addEmail{
+            display: flex;
+            width: 100%;
+            align-content: flex-start;
+            justify-content: space-between;
+            margin: 10px;
+        }
+
+        ul{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 !important;
+
+            li{
+                display: flex;
+                width: 100%;
+                align-content: flex-start;
+                justify-content: space-between;
+                margin: 10px;
+                span{
+                    width: 200px;
+                    padding:20px;
+                    margin: 10px 0;
+                }
+
+                #icon{
+                    width: 20px;
+                    height: 20px;
+                    margin: 0 10px;
+
+                    :hover{
+                        cursor: pointer;
+                        
+                    }
+                }
+            }
+        }
+        .textWrapper{
+            display: flex;
+            width: 100%;
+            padding: 20px;
+            align-content: flex-start;
+            justify-content: space-between;
+        }
+    }
+}
