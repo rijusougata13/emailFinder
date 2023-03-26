@@ -91,9 +91,10 @@ export const UserDetails = () => {
   }
   
 
-  if(loading){
+  if(loading && searchDetails.id){
     return <div style={{height:"10vh"}}>Loading...</div>
   }
+  if(searchDetails.id)
     return (
         <div className={styles.wrapper} id="userDetails">
             <h1>User Details</h1>

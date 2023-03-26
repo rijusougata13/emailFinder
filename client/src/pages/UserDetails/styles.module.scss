@@ -17,7 +17,8 @@
         align-items: center;
         flex-direction: column;
         padding: 20px;
-        height: 100%;
+        overflow: hidden;
+        // height: 100%;
         @media (max-width: 600px) {
             max-width: 90%;
         }
@@ -29,16 +30,29 @@
             justify-content: space-between;
             margin: 10px;
         }
-
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    
+                ::-webkit-scrollbar {
+                    display: none !important;
+                }
+                  
         ul{
             width: 100%;
             display: flex;
             justify-content: center;
             flex-direction: column;
             padding: 0 !important;
+            scrollbar-width: none;
             overflow: auto;
             height:100%;
-          
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+            ::-webkit-scrollbar {
+                display: none !important;
+            }
+              
             li{
                 display: flex;
                 width: 100%;
