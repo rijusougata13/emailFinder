@@ -1,12 +1,12 @@
 .footerWrapper{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: white;
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    background-color: white !important;
     color: white;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100% !important;
 
     .icon{
         color: black;
