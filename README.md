@@ -20,5 +20,6 @@ from project directory go to client folder with cd client/ , install dependencie
 - supabase for storing data
 
 Gallery
+<img width="1693" alt="Screenshot 2023-04-04 at 7 17 21 PM" src="https://user-images.githubusercontent.com/52108435/229813165-6d52826d-64fe-42ba-b902-feec55f31484.png">
 
-![Uploading Screenshot 2023-04-04 at 7.09.40 PM.png…]()
+
